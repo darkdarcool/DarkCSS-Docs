@@ -1,119 +1,40 @@
-# Markdown and React
+# Syntax
 
-You can write normal `.md` files or the more powerful `.mdx` format.
 
-Use [MDX](https://mdxjs.com/about) to import and use React components inside your Markdown file:
+DarkCSS is in beta, and there are few things to learn, but to get a head start, learn a little bit of early syntax!
 
-```markdown
-import Callout from 'nextra-theme-docs/callout'
+-----
 
-### Markdown With React Components
+DarkCSS is a superset of CSS, meaning it compiles right back down to CSS allowing you to use it anywhere that supports CSS. DarkCSS does ***NOT*** support writing in _sass_(scss), so you can't do that. 
 
-<Callout emoji="✅">
-  **MDX** (the library), at its core, transforms MDX (the syntax) to JSX.
-  It receives an MDX string and outputs a _JSX string_. It does this by parsing
-  the MDX document to a syntax tree and then generates a JSX document from that tree. 
-</Callout>
+Now, let's see a sample DarkCSS code, and we'll break it down!
+
 ```
-
-Generates:
-
-import Callout from 'nextra-theme-docs/callout'
-
-### Markdown With React Components
-
-<Callout emoji="✅">
-  **MDX** (the library), at its core, transforms MDX (the syntax) to JSX.
-  It receives an MDX string and outputs a _JSX string_. It does this by parsing
-  the MDX document to a syntax tree and then generates a JSX document from that tree. 
-</Callout>
-
-## List
-
-1. one
-2. two
-3. three
-
-- one
-- two
-- three
-
----
-
-# **Hello**, This Is a _Title_ Inside `h1`
-## **Hello**, This Is a _Title_ Inside `h2`
-### **Hello**, This Is a _Title_ Inside `h3`
-#### **Hello**, This Is a _Title_ Inside `h4`
-##### **Hello**, This Is a _Title_ Inside `h5`
-###### **Hello**, This Is a _Title_ Inside `h6`
-
-## Code Highlighting
-
-Code highlighting with focused lines using
-
-````markdown
-```jsx highlight=2,3
-function App() {
-  // these 2 lines will be highlighted
-  return <App>My JSX Code</App>
+h1 {
+ content.color = red;
 }
 ```
-````
+As you can see, the tag starts off like CSS, but the descriptions of the tag are much different.
 
-```jsx highlight=4,8
-import useSWR from 'swr'
+Content is the element, meaning it would be `h1` in this case. Then you get to the obj that describes h1, which is color. Then we put an equal sign and put the color we want. DarkCSS does not care what you put in there. We put red for an example, but it can be Hex, RGB, ext. DarkCSS is not case sensitive, so spaces are not required. 
 
-function Profile() {
-  const { data, error } = useSWR('/api/user', fetcher)
+If you would like a full list of all of the element, please go [here, also put link here lol](https://google.com). If you want an element that is not in DarkCSS, please contact us and we will see if we can add it!
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  return <div>hello {data.name}!</div>
+If you contradict yourself, DarkCSS will put in the last element, for example:
+
+```
+h1 {
+ content.color = blue;
+ content.color = red;
 }
 ```
+DarkCSS will look for the last known element, for color, and the compiled CSS outfile will look like this:
 
-Inline code: `let x = 1`.  
-Multiple lines: `x += 1`.
+```
+h1 {
+ color: red;
+}
+```
+Sadly, DarkCSS requires semicolons, so if you were looking to escape semicolons, you're out of luck.
 
-## Blockquote
-
-> Where some people measure progress in answers-right per test or tests-passed per year, we are more interested in Sistine-Chapel-Ceilings per Lifetime.
-> 
-> — Alan Kay, A Personal Computer for Children of All Ages
-
-And nested quotes:
-
-> > Where some people measure progress in answers-right per test or tests-passed per year, we are more interested in Sistine-Chapel-Ceilings per Lifetime.
-> > 
-> > — Alan Kay, A Personal Computer for Children of All Ages
-> 
-> This is **great**.
-> 
-> — Shu Ding.
-
-## Table
-
-| Syntax        | Description | Test Text     |
-| :---          |    :----:   |          ---: |
-| Header        | Title       | Here's this   |
-| Paragraph     | Text        | And more      |
-| Strikethrough |             | ~~Text~~      |
-
-With `next/image`:
-
-import Image from 'next/image'
-
-| Image |
-| :--- |
-| <Image src="/og.png" alt="Nextra" width={1536/2} height={768/2} layout="intrinsic"/> |
-| `<Image src="/og.png" alt="Nextra" width={1536/2} height={768/2} layout="intrinsic"/>` |
-
-## Task List
-
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-
----
-
-Click the "Edit this page on GitHub" link below to see the code.
+Thanks for looking at basic syntax of DarkCSS!
