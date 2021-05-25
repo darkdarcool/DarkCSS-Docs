@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Bleed from 'nextra-theme-docs/bleed'
-
 # DarkCSS
 
 DarkCSS is an alternitive with easy to read syntax for those who _dont't_ like css or sass. It's super simple, to learn and use.
@@ -13,5 +10,18 @@ npm i -g darkcss
 Now when you run `darkcss`, you'll be able to use darkcss! 
 
 If it doesn't work, put npx in front of darkcss and it should work!
+
+Please make a `style.dark` file, and put the following in it:
+```
+h1 {
+  content.color = red'
+}
+```
+To build a darkcss file, please do: (use npx if you need it)
+
+```
+darkcss style.dark -o style.css
+```
+The dark file and css file and be anything you want!
 
 Now let's move on!
